@@ -15,8 +15,13 @@ def submitquery(request):
             'q': q,
             'ans': ans,
             'error': False,
+            'result': True,
         }
         return render(request, 'index.html', context=mydict)
 
     except:
-        pass
+        mydict = {
+            'error': True,
+            'result': False,
+        }
+    return render(request, 'index.html', context=mydict)
